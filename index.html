@@ -1,32 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link
+      rel="shortcut icon"
+      href="assets/favicon-lula.png"
+      type="image/x-icon"
+    />
     <title>Gerenciador de perfis</title>
   </head>
   <body>
-    <label for="nome">Nome</label>
-    <input type="text" name="Nome" id="nome" />
-    <label for="sobrenome">Sobrenome</label>
-    <input type="text" name="Sobrenome" id="sobrenome" />
-    <label for="rg">RG</label>
-    <input type="text" name="RG" id="rg" />
-    <label for="">CPF</label>
-    <input type="text" name="CPF" id="cpf" />
-    <input type="radio" name="Gênero" id="radioMasculino" />
-    <label for="radioMasculino">Masculino</label>
-    <input type="radio" name="Gênero" id="radioFeminino" />
-    <label for="radioFeminino">Feminino</label>
-    <label for="cargo">Cargo</label>
-    <input type="text" name="Cargo" id="cargo" />
-    <select name="Sênioridade" id="senioridade">
-      <option value="" disabled>Selecione...</option>
-      <option value="junior">Júnior</option>
-      <option value="pleno">Pleno</option>
-      <option value="senior">Sênior</option>
-    </select>
-    <button>Limpar</button>
-    <button>Salvar</button>
+    <main>
+      <div class="modal">
+        <div class="modal__form">
+          <div class="form__input-box">
+            <label class="label" for="nome">Nome</label>
+            <input class="input" type="text" name="Nome" id="nome" />
+          </div>
+          <div class="form__input-box">
+            <label class="label" for="sobrenome">Sobrenome</label>
+            <input class="input" type="text" name="Sobrenome" id="sobrenome" />
+          </div>
+          <div class="form__input-box">
+            <label class="label" for="rg">RG</label>
+            <input class="input" type="text" name="RG" id="rg" />
+          </div>
+          <div class="form__input-box">
+            <label class="label" for="">CPF</label>
+            <input class="input" type="text" name="CPF" id="cpf" />
+          </div>
+          <div class="form__radio-box">
+            <div class="radio-box__radio-option">
+              <input type="radio" name="Gênero" id="radioMasculino" />
+              <label class="label" for="radioMasculino">Masculino</label>
+            </div>
+            <div class="radio-box__radio-option">
+              <input type="radio" name="Gênero" id="radioFeminino" />
+              <label class="label" for="radioFeminino">Feminino</label>
+            </div>
+          </div>
+          <div class="form__input-box">
+            <label class="label" for="cargo">Cargo</label>
+            <input class="input" type="text" name="Cargo" id="cargo" />
+          </div>
+          <div class="form__input-box">
+            <label for="senioridade" class="label">Nível do cargo</label>
+            <select class="dropdown" name="Senioridade" id="senioridade">
+              <option value="" disabled selected>Selecione...</option>
+              <option value="junior">Júnior</option>
+              <option value="pleno">Pleno</option>
+              <option value="senior">Sênior</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal__actions">
+          <button class="button button--red">Limpar</button>
+          <button class="button button--green">Salvar</button>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

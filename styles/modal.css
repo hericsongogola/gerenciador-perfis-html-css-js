@@ -1,0 +1,28 @@
+.modal {
+  display: flex;
+  flex-direction: column;
+  padding: 48px;
+  gap: 32px;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.24);
+  width: fit-content;
+  background-color: #ffffff;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.modal__actions {
+  display: flex;
+  gap: 32px;
+}
+
+.form__radio-box {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}

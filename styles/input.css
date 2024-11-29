@@ -1,0 +1,21 @@
+.input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.label {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.input {
+  display: flex;
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: #eeeeee;
+  border: none;
+  font-size: 16px;
+  width: 100%;
+}

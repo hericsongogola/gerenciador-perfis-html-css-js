@@ -3,7 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/button.css" />
+    <link rel="stylesheet" href="styles/dropdown.css" />
+    <link rel="stylesheet" href="styles/input.css" />
+    <link rel="stylesheet" href="styles/modal.css" />
+    <link rel="stylesheet" href="styles/table.css" />
     <link
       rel="shortcut icon"
       href="assets/favicon-lula.png"
@@ -15,25 +20,25 @@
     <main>
       <div class="modal">
         <div class="modal__form">
-          <div class="form__input-box">
+          <div class="input-box">
             <label class="label" for="nome">Nome</label>
             <input class="input" type="text" name="Nome" id="nome" />
           </div>
-          <div class="form__input-box">
+          <div class="input-box">
             <label class="label" for="sobrenome">Sobrenome</label>
             <input class="input" type="text" name="Sobrenome" id="sobrenome" />
           </div>
-          <div class="form__input-box">
+          <div class="input-box">
             <label class="label" for="rg">RG</label>
             <input class="input" type="text" name="RG" id="rg" />
           </div>
-          <div class="form__input-box">
+          <div class="input-box">
             <label class="label" for="cpf">CPF</label>
             <input class="input" type="text" name="CPF" id="cpf" />
           </div>
           <div class="form__radio-box">
             <div class="radio-box__radio-option">
-              <input type="radio" name="Gênero" id="radioMasculino" />
+              <input type="radio" name="Gênero" id="radioMasculino" checked />
               <label class="label" for="radioMasculino">Masculino</label>
             </div>
             <div class="radio-box__radio-option">
@@ -41,11 +46,11 @@
               <label class="label" for="radioFeminino">Feminino</label>
             </div>
           </div>
-          <div class="form__input-box">
+          <div class="input-box">
             <label class="label" for="cargo">Cargo</label>
             <input class="input" type="text" name="Cargo" id="cargo" />
           </div>
-          <div class="form__input-box">
+          <div class="input-box">
             <label for="senioridade" class="label">Nível do cargo</label>
             <select class="dropdown" name="Senioridade" id="senioridade">
               <option value="" disabled selected>Selecione...</option>

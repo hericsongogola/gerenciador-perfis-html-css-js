@@ -22,3 +22,14 @@ buttonSalvar.addEventListener("click", () => {
     inputSenioridade.value
   );
 });
+buttonLimpar.addEventListener("click", () => {
+  inputNome.value = "";
+  inputSobrenome.value = "";
+  inputRg.value = "";
+  inputCpf.value = "";
+  inputRadioMasculino.checked = true;
+  inputRadioFeminino.checked = false;
+  inputCargo.value = "";
+  inputSenioridade.value = "";
+  console.log("apagou tudo garoto!!!");
+});

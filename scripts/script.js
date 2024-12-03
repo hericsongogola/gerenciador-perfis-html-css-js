@@ -13,7 +13,17 @@ const buttonSalvar = document.getElementById("salvar");
 const rowsTable = [];
 const tableHtml = document.getElementById("table-data");
 
-const titulosTable = ["#", "Nome Completo", "RG", "CPF", "Gênero", "Cargo", "Senioridade "];
+const titulosTable = [
+  "#",
+  "Nome Completo",
+  "RG",
+  "CPF",
+  "Gênero",
+  "Cargo",
+  "Senioridade ",
+];
+
+let idGlobal = 0;
 
 buttonSalvar.addEventListener("click", (event) => {
   event.preventDefault();
@@ -66,7 +76,8 @@ function generateTable() {
     table.appendChild(line);
 
     rowsTable.map(
-      ({ nome, sobrenome, rg, cpf, genero, cargo, senioridade }) => {
+      ({ id, nome, sobrenome, rg, cpf, genero, cargo, senioridade }) => {
+        const cellId = document.createElement("td");
         const cellNomeCompleto = document.createElement("td");
         const cellRg = document.createElement("td");
         const cellCpf = document.createElement("td");
@@ -76,6 +87,7 @@ function generateTable() {
 
         const line = document.createElement("tr");
 
+        cellId.textContent = id;
         cellNomeCompleto.textContent = `${nome} ${sobrenome}`;
         cellRg.textContent = rg;
         cellCpf.textContent = cpf;
@@ -83,6 +95,7 @@ function generateTable() {
         cellCargo.textContent = cargo;
         cellSenioridade.textContent = senioridade;
 
+        line.appendChild(cellId);
         line.appendChild(cellNomeCompleto);
         line.appendChild(cellRg);
         line.appendChild(cellCpf);
@@ -98,13 +111,17 @@ function generateTable() {
   }
 }
 
-function generateId(){
-  return 1
+function generateId() {
+  idGlobal++;
+  return idGlobal;
 }
 
-alert("Preencha todos os campos antes de salvar")
+alert("Preencha todos os campos antes de salvar");
 
-//Criar logica para gerar um ID. Dica: criar uma variavel global
+//Criar logica para gerar um ID. Dica: criar uma variavel global - OK
+
+// Ajustar a tabela que não estava recebendo o id - OK
+
 //Validar o preenchimento dos campos obrigatórios ao clicar no botão salvar. Dica: Se não preenchido retornar um alerta para o usuário
 
 //Desafio se tiver cerebro e tempo: retornar os dados da linha para o formulario ao clicar no ID da linha e apagar a mesma. Dica: Apagar do array.

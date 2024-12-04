@@ -23,38 +23,38 @@ const titulosTable = [
   "Senioridade ",
 ];
 
-let idGlobal = 0;
+let idGlobal = 1;
 
 buttonSalvar.addEventListener("click", (event) => {
   event.preventDefault();
+  if (
+    inputNome.value !== "" &&
+    inputSobrenome.value !== "" &&
+    inputCpf.value !== "" &&
+    inputCargo.value !== ""
+  ) {
+    const row = {
+      id: generateId(),
+      nome: inputNome.value,
+      sobrenome: inputSobrenome.value,
+      rg: inputRg.value,
+      cpf: inputCpf.value,
+      genero: inputRadioMasculino.checked === true ? "Masculino" : "Feminino",
+      cargo: inputCargo.value,
+      senioridade: inputSenioridade.value,
+    };
 
-  const row = {
-    id: generateId(),
-    nome: inputNome.value,
-    sobrenome: inputSobrenome.value,
-    rg: inputRg.value,
-    cpf: inputCpf.value,
-    genero: inputRadioMasculino.checked === true ? "Masculino" : "Feminino",
-    cargo: inputCargo.value,
-    senioridade: inputSenioridade.value,
-  };
-
-  rowsTable.push(row);
-  generateTable();
+    rowsTable.push(row);
+    generateTable();
+    clearForm();
+  } else {
+    alert("Preencha todos os campos obrigatórios antes de salvar");
+  }
 });
 
 buttonLimpar.addEventListener("click", (event) => {
   event.preventDefault();
-
-  inputNome.value = "";
-  inputSobrenome.value = "";
-  inputRg.value = "";
-  inputCpf.value = "";
-  inputRadioMasculino.checked = true;
-  inputRadioFeminino.checked = false;
-  inputCargo.value = "";
-  inputSenioridade.value = "";
-  console.log("apagou tudo garoto!!!");
+  clearForm();
 });
 
 function generateTable() {
@@ -95,6 +95,20 @@ function generateTable() {
         cellCargo.textContent = cargo;
         cellSenioridade.textContent = senioridade;
 
+        cellId.addEventListener("click", () => {
+          inputNome.value = nome;
+          inputSobrenome.value = sobrenome;
+          inputRg.value = rg;
+          inputCpf.value = cpf;
+          inputRadioMasculino.checked = genero === "Masculino";
+          inputRadioFeminino.checked = genero === "Feminino";
+          inputCargo.value = cargo;
+          inputSenioridade.value = senioridade;
+
+          rowsTable.splice(getIndex(id), 1);
+          generateTable();
+        });
+
         line.appendChild(cellId);
         line.appendChild(cellNomeCompleto);
         line.appendChild(cellRg);
@@ -112,16 +126,27 @@ function generateTable() {
 }
 
 function generateId() {
-  idGlobal++;
-  return idGlobal;
+  return idGlobal++;
 }
 
-alert("Preencha todos os campos antes de salvar");
+function getIndex(index) {
+  let i = 0;
+  let position;
 
-//Criar logica para gerar um ID. Dica: criar uma variavel global - OK
+  while (i <= rowsTable.length) {
+    return rowsTable[i].id === index ? (position = i) : i++;
+  }
 
-// Ajustar a tabela que não estava recebendo o id - OK
+  return position;
+}
 
-//Validar o preenchimento dos campos obrigatórios ao clicar no botão salvar. Dica: Se não preenchido retornar um alerta para o usuário
-
-//Desafio se tiver cerebro e tempo: retornar os dados da linha para o formulario ao clicar no ID da linha e apagar a mesma. Dica: Apagar do array.
+function clearForm() {
+  inputNome.value = "";
+  inputSobrenome.value = "";
+  inputRg.value = "";
+  inputCpf.value = "";
+  inputRadioMasculino.checked = true;
+  inputRadioFeminino.checked = false;
+  inputCargo.value = "";
+  inputSenioridade.value = "";
+}
